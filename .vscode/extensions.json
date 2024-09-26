@@ -3,8 +3,10 @@
     "bradlc.vscode-tailwindcss",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "editorconfig.editorconfig",
     "stivo.tailwind-fold",
-    "vitest.explorer"
+    "vitest.explorer",
+    "yoavbls.pretty-ts-errors",
+    "rangav.vscode-thunder-client",
+    "eamodio.gitlens"
   ]
 }

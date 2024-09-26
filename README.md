@@ -2,7 +2,9 @@
 
 # React Tailwindcss Boilerplate build with Vite
 
-This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
+This boilerplate is based on an [existing template](https://github.com/joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate) from a [list maintained by Vite's community](https://github.com/vitejs/awesome-vite#templates), and has some tiny adjustements.  
+
+The boilerplate is built with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
 
 ## What is inside?
 

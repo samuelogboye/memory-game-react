@@ -1,5 +1,3 @@
-![reactjs-vite-tailwindcss-boilerplate](https://user-images.githubusercontent.com/16243531/217138979-b854309c-4742-4275-a705-f9fec5158217.jpg)
-
 # React Tailwindcss Boilerplate build with Vite
 
 This boilerplate is based on an [existing template](https://github.com/joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate) from a [list maintained by Vite's community](https://github.com/vitejs/awesome-vite#templates), and has some tiny adjustements.  
@@ -23,17 +21,33 @@ This project uses many tools like:
 
 ### Install
 
-Create the project.
+Clone the project.
 
 ```bash
-pnpm dlx degit joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate my-app
+git clone git@git.internetbrands.com:LevelUp-Academy/react-vite-boilerplate-2024.git
 ```
+
+Rename the folder
 
 Access the project directory.
 
 ```bash
 cd my-app
 ```
+
+Remove the existing remotes
+
+```bash
+git remote rm origin
+```
+
+Add the remote for the empty repository that you want to work with
+
+```bash
+git remote add origin my-repo-url
+```
+
+Do a first commit and push it
 
 Install dependencies.
 

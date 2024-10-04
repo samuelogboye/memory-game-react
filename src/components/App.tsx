@@ -4,16 +4,22 @@ import { StrictMode } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import BasicReactQuery from 'routes/BasicReactQuery';
 import Root from 'routes/Root';
+import Layout from './Layout';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Root />,
-    errorElement: <div>Not found</div>
-  },
-  {
-    path: '/basic-react-query',
-    element: <BasicReactQuery />
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <Root />,
+        errorElement: <div>Not found</div>
+      },
+      {
+        path: '/basic-react-query',
+        element: <BasicReactQuery />
+      }
+    ]
   }
 ]);
 

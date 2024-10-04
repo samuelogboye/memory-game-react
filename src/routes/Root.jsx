@@ -1,9 +1,5 @@
 const Root = () => {
-  return (
-    <div>
-      <h1>Root</h1>
-    </div>
-  );
+  return <h1 className="text-center text-4xl font-bold text-gray-800">Home</h1>;
 };
 
 export default Root;

@@ -2,15 +2,15 @@ import React from 'react';
 
 const GameCompletedModal = ({ clickCount, bestScore, handleReset }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-0">
-      <div className="bg-white flex flex-col items-center p-6 sm:p-8 max-w-xs sm:max-w-md w-full rounded shadow-lg">
-        <h2 className="text-xl sm:text-2xl font-bold text-center mb-4">
+    <div className="fixed inset-0 flex items-center justify-center">
+      <div className="flex w-full max-w-xs flex-col items-center rounded bg-white p-6 shadow-lg sm:max-w-md sm:p-8">
+        <h2 className="mb-4 text-center text-xl font-bold sm:text-2xl">
           Congratulations! You found all the cards in {clickCount} flips.
         </h2>
-        <p className="text-md sm:text-lg text-center mb-4">Best Score: {bestScore}</p>
+        <p className="mb-4 text-center sm:text-lg">Best Score: {bestScore}</p>
         <button
           onClick={handleReset}
-          className="bg-gray-800 text-white align-center p-2 rounded sm:w-auto animate-bounce hover:bg-gray-700"
+          className="animate-bounce rounded bg-gray-800 p-2 text-white hover:bg-gray-700 sm:w-auto"
         >
           Reset to Play Again
         </button>

@@ -3,34 +3,39 @@ import React from 'react';
 const ImageCard = ({ image, handleCardClick }) => {
   return (
     <div
-      className="relative w-40 h-60 sm:w-48 sm:h-64 lg:w-52 lg:h-80"
+      className="relative h-60 w-40 sm:h-64 sm:w-48 lg:h-80 lg:w-52"
       onClick={() => handleCardClick(image)}
     >
-      <div className={`relative w-full h-full`} style={{ perspective: '1000px' }}>
+      <div className={`relative size-full`} style={{ perspective: '1000px' }}>
         <div
-          className={`transform transition-transform duration-700 w-full h-full relative`}
+          className={`relative size-full transition-transform duration-700`}
           style={{
             transformStyle: 'preserve-3d',
-            transform: image.isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+            transform: image.isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
           }}
         >
           {/* Front Side (Blue Background) */}
           <div
-            className="absolute w-full h-full bg-gray-800 backface-hidden flex justify-center items-center"
+            className="absolute flex size-full items-center justify-center bg-gray-800"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(0deg)' }}
           >
-            <h1 className="text-white text-bold">Hi, Click Me</h1>
+            <h1 className="animate-bounce text-white sm:text-3xl lg:text-4xl">
+              Hi, Click Me
+            </h1>
           </div>
 
           {/* Back Side (Image) */}
           <div
-            className="absolute w-full h-full backface-hidden"
-            style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+            className="absolute size-full"
+            style={{
+              backfaceVisibility: 'hidden',
+              transform: 'rotateY(180deg)'
+            }}
           >
             <img
               src={image.url}
               alt={`Back ${image.id}`}
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
         </div>

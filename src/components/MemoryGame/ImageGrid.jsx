@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import ImageCard from './ImageCard'; 
+import React, { useCallback, useEffect, useState } from 'react';
+import ImageCard from './ImageCard';
 import Scoreboard from './ScoreBoard';
 import GameCompletedModal from './GameCompletedModal';
 
@@ -14,11 +14,25 @@ function ImageGrid({ Images }) {
     setImages(shuffledImages);
   }, [Images]);
 
+  const getBestScore = useCallback(() => {
+    const bestScore = localStorage.getItem('bestScore');
+    return bestScore ? parseInt(bestScore, 10) : 0;
+  }, []);
+
+  const setBestScore = useCallback(() => {
+    if (
+      clickCount > 0 &&
+      (getBestScore() === 0 || clickCount < getBestScore())
+    ) {
+      localStorage.setItem('bestScore', clickCount);
+    }
+  }, [clickCount, getBestScore]);
+
   useEffect(() => {
     if (gameCompleted) {
       setBestScore();
     }
-  }, [clickCount, gameCompleted]);
+  }, [gameCompleted, setBestScore]);
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -72,23 +86,15 @@ function ImageGrid({ Images }) {
   };
 
   const handleReset = () => {
-    const resetImages = GridImages.map((image) => ({ ...image, isFlipped: false }));
+    const resetImages = GridImages.map((image) => ({
+      ...image,
+      isFlipped: false
+    }));
     const shuffledImages = shuffleArray([...resetImages]);
     setImages(shuffledImages);
     setClickCount(0);
     setFlippedCards([]);
     setGameCompleted(false);
-  };
-
-  const getBestScore = () => {
-    const bestScore = localStorage.getItem('bestScore');
-    return bestScore ? parseInt(bestScore, 10) : 0;
-  };
-
-  const setBestScore = () => {
-    if (clickCount > 0 && (getBestScore() === 0 || clickCount < getBestScore())) {
-      localStorage.setItem('bestScore', clickCount);
-    }
   };
 
   const resetAllScores = () => {
@@ -107,9 +113,13 @@ function ImageGrid({ Images }) {
       />
 
       {/* Grid of Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {GridImages.map((image, index) => (
-          <ImageCard key={index} image={image} handleCardClick={handleCardClick} />
+          <ImageCard
+            key={index}
+            image={image}
+            handleCardClick={handleCardClick}
+          />
         ))}
       </div>
 

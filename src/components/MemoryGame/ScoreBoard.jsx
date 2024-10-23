@@ -5,10 +5,16 @@ const Scoreboard = ({ clickCount, bestScore, handleReset, resetAllScores }) => {
     <div className="mb-4">
       <p>Best Score: {bestScore}</p>
       <p>Click Count: {clickCount}</p>
-      <button onClick={handleReset} className="bg-gray-800 text-white p-2 rounded">
+      <button
+        onClick={handleReset}
+        className="rounded bg-gray-800 p-2 text-white"
+      >
         Reset Game
       </button>
-      <button onClick={resetAllScores} className="bg-gray-800 text-white p-2 rounded">
+      <button
+        onClick={resetAllScores}
+        className="rounded bg-gray-800 p-2 text-white"
+      >
         Reset All Scores
       </button>
     </div>

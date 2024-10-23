@@ -6,6 +6,7 @@ import BasicReactQuery from 'routes/BasicReactQuery';
 import Root from 'routes/Root';
 import Layout from './Layout';
 import { MantineProvider } from '@mantine/core';
+import MemoryGamePage from 'routes/MemoryGamePage';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: '/basic-react-query',
         element: <BasicReactQuery />
+      },
+      {
+        path: '/memory-game',
+        element: <MemoryGamePage />
       }
     ]
   }

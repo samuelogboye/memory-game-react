@@ -2,17 +2,18 @@ import React, { useCallback, useEffect, useState } from 'react';
 import ImageCard from './ImageCard';
 import Scoreboard from './ScoreBoard';
 import GameCompletedModal from './GameCompletedModal';
+import { ImageGridProps, ImagesProp } from 'types';
 
-function ImageGrid({ Images }) {
-  const [GridImages, setImages] = useState(Images);
-  const [clickCount, setClickCount] = useState(0);
-  const [flippedCards, setFlippedCards] = useState([]);
+const ImageGrid: React.FC<ImageGridProps> = ({ Images: ImagesProp }) => {
+  const [GridImages, setImages] = useState(ImagesProp);
+  const [clickCount, setClickCount] = useState<number>(0);
+  const [flippedCards, setFlippedCards] = useState<ImagesProp[]>([]);
   const [gameCompleted, setGameCompleted] = useState(false);
 
   useEffect(() => {
-    const shuffledImages = shuffleArray([...Images]);
+    const shuffledImages = shuffleArray([...ImagesProp]);
     setImages(shuffledImages);
-  }, [Images]);
+  }, [ImagesProp]);
 
   const getBestScore = useCallback(() => {
     const bestScore = localStorage.getItem('bestScore');
@@ -24,7 +25,7 @@ function ImageGrid({ Images }) {
       clickCount > 0 &&
       (getBestScore() === 0 || clickCount < getBestScore())
     ) {
-      localStorage.setItem('bestScore', clickCount);
+      localStorage.setItem('bestScore', clickCount.toString());
     }
   }, [clickCount, getBestScore]);
 
@@ -34,7 +35,7 @@ function ImageGrid({ Images }) {
     }
   }, [gameCompleted, setBestScore]);
 
-  function shuffleArray(array) {
+  function shuffleArray(array: ImagesProp[]): ImagesProp[] {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -42,7 +43,7 @@ function ImageGrid({ Images }) {
     return array;
   }
 
-  const handleCardClick = (clickedImage) => {
+  const handleCardClick = (clickedImage: ImagesProp): void => {
     if (flippedCards.length === 2 || clickedImage.isFlipped) return;
 
     setClickCount(clickCount + 1);
@@ -61,7 +62,7 @@ function ImageGrid({ Images }) {
     checkIfGameCompleted(updatedImages);
   };
 
-  const checkForMatch = (flippedCards) => {
+  const checkForMatch = (flippedCards: ImagesProp[]) => {
     const [firstCard, secondCard] = flippedCards;
     let updatedImages = [...GridImages];
 
@@ -78,7 +79,7 @@ function ImageGrid({ Images }) {
     }
   };
 
-  const checkIfGameCompleted = (images) => {
+  const checkIfGameCompleted = (images: ImagesProp[]) => {
     const allFlipped = images.every((image) => image.isFlipped);
     if (allFlipped) {
       setGameCompleted(true);
@@ -114,9 +115,9 @@ function ImageGrid({ Images }) {
 
       {/* Grid of Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {GridImages.map((image, index) => (
+        {GridImages.map((image) => (
           <ImageCard
-            key={index}
+            key={image.id}
             image={image}
             handleCardClick={handleCardClick}
           />
@@ -133,6 +134,6 @@ function ImageGrid({ Images }) {
       )}
     </div>
   );
-}
+};
 
 export default ImageGrid;

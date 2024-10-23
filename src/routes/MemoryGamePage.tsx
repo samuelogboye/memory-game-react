@@ -2,8 +2,6 @@ import ImageGrid from 'components/MemoryGame/ImageGrid';
 import Images from 'data/image';
 
 const MemoryGamePage = () => {
-  // console.log("images", Images);
-
   return (
     <div className="mb-10">
       <div className="text-center font-bold text-gray-800">

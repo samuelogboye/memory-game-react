@@ -1,6 +1,11 @@
 import React from 'react';
+import { GameCompletedModalProps } from 'types';
 
-const GameCompletedModal = ({ clickCount, bestScore, handleReset }) => {
+const GameCompletedModal: React.FC<GameCompletedModalProps> = ({
+  clickCount,
+  bestScore,
+  handleReset
+}) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <div className="flex w-full max-w-xs flex-col items-center rounded bg-white p-6 shadow-lg sm:max-w-md sm:p-8">

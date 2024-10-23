@@ -1,6 +1,12 @@
 import React from 'react';
+import { ScoreboardProps } from 'types';
 
-const Scoreboard = ({ clickCount, bestScore, handleReset, resetAllScores }) => {
+const Scoreboard: React.FC<ScoreboardProps> = ({
+  clickCount,
+  bestScore,
+  handleReset,
+  resetAllScores
+}) => {
   return (
     <div className="mb-4">
       <p>Best Score: {bestScore}</p>

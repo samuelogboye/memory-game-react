@@ -20,6 +20,14 @@ const NavigationBar = () => {
             Basics RQ
           </Link>
         </li>
+        <li>
+          <Link
+            to="/memory-game"
+            className="text-white transition duration-300 hover:text-gray-300"
+          >
+            Memory Game
+          </Link>
+        </li>
       </ul>
     </nav>
   );

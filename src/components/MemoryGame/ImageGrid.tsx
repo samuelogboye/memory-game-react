@@ -12,7 +12,7 @@ function shuffleArray(array: ImagesProp[]): ImagesProp[] {
   return array;
 }
 
-const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
+const ImageGrid = ({ images: ImagesProp }: ImageGridProps) => {
   const [gridImages, setImages] = useState(ImagesProp);
   const [clickCount, setClickCount] = useState<number>(0);
   const [flippedCards, setFlippedCards] = useState<ImagesProp[]>([]);

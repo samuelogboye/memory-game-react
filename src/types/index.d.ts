@@ -5,7 +5,7 @@ export interface ImagesProp {
 }
 
 export interface ImageGridProps {
-  Images: ImagesProp[];
+  images: ImagesProp[];
 }
 
 export interface ImageCardProps {

@@ -9,7 +9,7 @@ const MemoryGamePage = () => {
         <p>Click on the cards to match them</p>
       </div>
       <div className="flex justify-center">
-        <ImageGrid Images={Images} />
+        <ImageGrid images={Images} />
       </div>
     </div>
   );

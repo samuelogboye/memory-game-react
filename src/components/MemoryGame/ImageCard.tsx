@@ -4,7 +4,7 @@ import { ImageCardProps } from 'types';
 const ImageCard = ({ image, handleCardClick }: ImageCardProps) => {
   return (
     <div
-      className="relative h-60 w-40 sm:h-64 sm:w-48 lg:h-80 lg:w-52"
+      className="relative size-60 cursor-pointer rounded sm:size-48 lg:size-52"
       onClick={() => handleCardClick(image)}
     >
       <div className={`relative size-full`} style={{ perspective: '1000px' }}>

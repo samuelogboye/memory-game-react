@@ -13,15 +13,10 @@ function shuffleArray(array: ImagesProp[]): ImagesProp[] {
 }
 
 const ImageGrid = ({ images: ImagesProp }: ImageGridProps) => {
-  const [gridImages, setImages] = useState(ImagesProp);
+  const [gridImages, setImages] = useState(shuffleArray([...ImagesProp]));
   const [clickCount, setClickCount] = useState<number>(0);
   const [flippedCards, setFlippedCards] = useState<ImagesProp[]>([]);
   const [gameCompleted, setGameCompleted] = useState(false);
-
-  useEffect(() => {
-    const shuffledImages = shuffleArray([...ImagesProp]);
-    setImages(shuffledImages);
-  }, [ImagesProp]);
 
   const getBestScore = useCallback(() => {
     const bestScore = localStorage.getItem('bestScore');

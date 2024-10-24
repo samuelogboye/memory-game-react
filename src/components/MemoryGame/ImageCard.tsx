@@ -4,7 +4,7 @@ import { ImageCardProps } from 'types';
 const ImageCard = ({ image, handleCardClick }: ImageCardProps) => {
   return (
     <div
-      className="relative size-60 cursor-pointer rounded sm:size-48 lg:size-52"
+      className="relative size-60 rounded sm:size-48 lg:size-52"
       onClick={() => handleCardClick(image)}
     >
       <div className={`relative size-full`} style={{ perspective: '1000px' }}>
@@ -17,7 +17,7 @@ const ImageCard = ({ image, handleCardClick }: ImageCardProps) => {
         >
           {/* Front Side (Blue Background) */}
           <div
-            className="absolute flex size-full items-center justify-center bg-gray-800"
+            className="absolute flex size-full cursor-pointer items-center justify-center bg-gray-800"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(0deg)' }}
           >
             <h1 className="animate-bounce text-white sm:text-3xl lg:text-4xl">

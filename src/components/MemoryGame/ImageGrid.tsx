@@ -4,6 +4,14 @@ import Scoreboard from './ScoreBoard';
 import GameCompletedModal from './GameCompletedModal';
 import { ImageGridProps, ImagesProp } from 'types';
 
+function shuffleArray(array: ImagesProp[]): ImagesProp[] {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
   const [gridImages, setImages] = useState(ImagesProp);
   const [clickCount, setClickCount] = useState<number>(0);
@@ -34,14 +42,6 @@ const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
       setBestScore();
     }
   }, [gameCompleted, setBestScore]);
-
-  function shuffleArray(array: ImagesProp[]): ImagesProp[] {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
 
   const handleCardClick = (clickedImage: ImagesProp): void => {
     if (flippedCards.length === 2 || clickedImage.isFlipped) return;

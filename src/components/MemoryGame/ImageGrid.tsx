@@ -5,7 +5,7 @@ import GameCompletedModal from './GameCompletedModal';
 import { ImageGridProps, ImagesProp } from 'types';
 
 const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
-  const [GridImages, setImages] = useState(ImagesProp);
+  const [gridImages, setImages] = useState(ImagesProp);
   const [clickCount, setClickCount] = useState<number>(0);
   const [flippedCards, setFlippedCards] = useState<ImagesProp[]>([]);
   const [gameCompleted, setGameCompleted] = useState(false);
@@ -47,7 +47,7 @@ const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
     if (flippedCards.length === 2 || clickedImage.isFlipped) return;
 
     setClickCount(clickCount + 1);
-    const updatedImages = GridImages.map((image) =>
+    const updatedImages = gridImages.map((image) =>
       image.id === clickedImage.id ? { ...image, isFlipped: true } : image
     );
     setImages(updatedImages);
@@ -64,7 +64,7 @@ const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
 
   const checkForMatch = (flippedCards: ImagesProp[]) => {
     const [firstCard, secondCard] = flippedCards;
-    let updatedImages = [...GridImages];
+    let updatedImages = [...gridImages];
 
     if (firstCard.url === secondCard.url) {
       setFlippedCards([]);
@@ -87,7 +87,7 @@ const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
   };
 
   const handleReset = () => {
-    const resetImages = GridImages.map((image) => ({
+    const resetImages = gridImages.map((image) => ({
       ...image,
       isFlipped: false
     }));
@@ -115,7 +115,7 @@ const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
 
       {/* Grid of Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {GridImages.map((image) => (
+        {gridImages.map((image) => (
           <ImageCard
             key={image.id}
             image={image}

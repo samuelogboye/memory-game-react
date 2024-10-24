@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageCardProps } from 'types';
 
-const ImageCard: React.FC<ImageCardProps> = ({ image, handleCardClick }) => {
+const ImageCard = ({ image, handleCardClick }: ImageCardProps) => {
   return (
     <div
       className="relative h-60 w-40 sm:h-64 sm:w-48 lg:h-80 lg:w-52"

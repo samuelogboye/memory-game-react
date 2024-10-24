@@ -4,7 +4,7 @@ import Scoreboard from './ScoreBoard';
 import GameCompletedModal from './GameCompletedModal';
 import { ImageGridProps, ImagesProp } from 'types';
 
-const ImageGrid: React.FC<ImageGridProps> = ({ Images: ImagesProp }) => {
+const ImageGrid = ({ Images: ImagesProp }: ImageGridProps) => {
   const [GridImages, setImages] = useState(ImagesProp);
   const [clickCount, setClickCount] = useState<number>(0);
   const [flippedCards, setFlippedCards] = useState<ImagesProp[]>([]);

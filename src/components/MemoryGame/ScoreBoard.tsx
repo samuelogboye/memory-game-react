@@ -1,4 +1,5 @@
 import React from 'react';
+import { IoReloadCircleSharp } from 'react-icons/io5';
 import { ScoreboardProps } from 'types';
 
 const Scoreboard = ({
@@ -8,21 +9,30 @@ const Scoreboard = ({
   resetAllScores
 }: ScoreboardProps) => {
   return (
-    <div className="mb-4">
-      <p>Best Score: {bestScore}</p>
-      <p>Click Count: {clickCount}</p>
-      <button
-        onClick={handleReset}
-        className="rounded bg-gray-800 p-2 text-white"
-      >
-        Reset Game
-      </button>
-      <button
-        onClick={resetAllScores}
-        className="rounded bg-gray-800 p-2 text-white"
-      >
-        Reset All Scores
-      </button>
+    <div className="mb-2 flex items-center justify-between border-8">
+      <div className="">
+        <p>Best Score: {bestScore}</p>
+        <p>Click Count: {clickCount}</p>
+      </div>
+      <div className="flex content-center gap-4">
+        <div className="md:flex" onClick={handleReset}>
+          <IoReloadCircleSharp
+            size={40}
+            className="cursor-pointer content-center"
+          />
+          <button className="hidden rounded p-2 text-sm md:block">
+            Reset Game
+          </button>
+        </div>
+        <div>
+          <button
+            className="hidden bg-red-500 p-2 text-sm text-white md:flex md:rounded"
+            onClick={resetAllScores}
+          >
+            Reset Best Score
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

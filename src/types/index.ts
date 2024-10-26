@@ -9,6 +9,7 @@ export interface ImageGridProps {
 }
 
 export interface ImageCardProps {
+  index: number;
   image: ImagesProp;
   handleCardClick: (clickedImage: ImagesProp) => void;
 }

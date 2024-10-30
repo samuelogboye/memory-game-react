@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const HomePage = () => {
   return (
     <div className="">
@@ -6,9 +8,12 @@ const HomePage = () => {
           Welcome, Wanna play the Memory Game?
         </h1>
         <button className="my-4 animate-bounce lg:animate-none">
-          <a href="/memory-game" className="rounded bg-gray-800 p-2 text-white">
+          <Link
+            to="/memory-game"
+            className="rounded bg-gray-800 p-2 text-white"
+          >
             Click Here to Play Now
-          </a>
+          </Link>
         </button>
         {/* <img src="/memory-game.png" alt="" /> */}
       </div>
